@@ -157,7 +157,7 @@ def uploadFile(path, awsBucket):
 	
 	info = {
 		'checksum': fileChecksum(path),
-		'compress': os.path.splitext(path)[1] not in ['.zip', '.gzip', '.tgz'],
+		'compress': os.path.splitext(path)[1] not in ['.zip', '.gzip', '.tgz', '.gz', '.mov', '.avi'],
 		'bytes': os.path.getsize(path),
 		'skip': False,
 		'remote-checksum': None
