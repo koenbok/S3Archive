@@ -45,7 +45,9 @@ class Backup(object):
 		self.stats['bytes'] += size
 		self.stats['done']  += 1
 		
-		char = '=' if info['skip'] else '+'
+		char = '+'
+		if info['skip']: char = '=' 
+		
 		speed = self.stats['bytes'] / (time.time() - self.stats['start'])
 
 		logging.info('%s %s/%s %s (%s) %s/s %s', char, self.stats['done'], self.stats['files'], readableBytes(self.stats['bytes']), readableBytes(size), readableBytes(speed), path)
